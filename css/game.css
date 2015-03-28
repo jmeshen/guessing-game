@@ -1,0 +1,45 @@
+body {
+  text-align: center;
+}
+#fn-circle {
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  background-color: cornsilk;
+  border-radius: 50%;
+  line-height: 200px;
+/*  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  -ms-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;*/
+}
+/*#fn-circle:hover {
+  transform: scale(2);
+}*/
+.fn-print-grow {
+  margin-bottom: 5%;
+}
+.fn-print-guess {
+  font-size: 6em;
+}
+.sunglasses {
+  font-size: 11em;
+}
+.thumbs-up {
+
+}
+#game-area {
+  background-color: #188DBE;
+  padding: 3%;
+  border-radius: 10px;
+  max-width: 700px;
+}
+.btn-guess {
+  background: cornsilk;
+  border: 1px solid rgb(185, 185, 185);
+}
+.jumbotron {
+  background-color: #fff;
+  margin-bottom: 0;
+}

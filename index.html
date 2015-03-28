@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guessing Game</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Guessing Game</h1>
+      <h2>What's my number?</h2>
+    </div>
+  </div>
+  <div class="container" id="game-area">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 fn-print-grow">
+        <div id="fn-circle">
+          <!-- TO-DO: replace '?' with previous guess -->
+          <span class="fn-print-guess">?</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <!-- TO-DO: one of these alerts will be displayed depending on input -->
+        <div class="alert alert-success" role="alert">You got it!</div>
+        <div class="alert alert-info" role="alert">You're getting colder.. <br>trying going higher <span class="glyphicon glyphicon-arrow-up"></span></div>
+        <div class="alert alert-danger" role="alert">You're getting warmer.. <br>try going lower <span class="glyphicon glyphicon-arrow-down"></span></div>
+      </div>
+    </div> <!-- /row -->
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" placeholder="Pick a number between 1-100">
+          <span class="input-group-btn">
+            <!-- update fn-num-guesses badge with num of remaining guesses (start at 7) -->
+            <button class="btn btn-primary" type="button">Guess! <span class="badge fn-num-guesses">4 left</span></button>
+          </span>
+        </div><!-- /input-group -->
+      </div>
+    </div><!-- /row -->
+
+    <!-- TO-DO: hide this section until first guess is made -->
+    <br>
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <!-- TO-DO: store previous guesses in an array and output to fn-num-guesses well -->
+        <div class="well well-sm text-muted" role="alert">Previous guesses: <span id="fn-num-guesses">55 <span class="glyphicon glyphicon-arrow-up"></span>, 90 <span class="glyphicon glyphicon-arrow-down"></span>, 70 <span class="glyphicon glyphicon-arrow-up"></span></span></div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm">I need a hint!</button>
+        <button type="button" class="btn btn-primary btn-sm">Play Again?</button>
+      </div>
+    </div>
+
+    <!-- IDEA: fun winning animation with sunglasses and thumbs up sliding to the appropriate place on the circle
+    circle will transform scale to fill most/entire screen
+    sunglasses will fly down a la meme
+    thumbs up will come in from the right
+
+    <div id="fn-circle">
+      <span class="glyphicon glyphicon-sunglasses sunglasses"></span>
+      <span class="glyphicon glyphicon-thumbs-up thumbs-up"></span>
+    </div> -->
+
+  </div> <!-- /container -->
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</html>
