@@ -27,7 +27,16 @@ body {
   font-size: 11em;
 }
 .thumbs-up {
-
+  font-size: 8em;
+}
+.fn-guess-alerts div {
+  display: none;
+}
+.fn-sink {
+  display: none;
+}
+.fn-win-modal {
+  margin-top: 15%;
 }
 #game-area {
   background-color: #188DBE;

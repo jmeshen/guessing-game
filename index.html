@@ -9,6 +9,22 @@
   <link rel="stylesheet" href="css/game.css">
 </head>
 <body>
+  <div class="modal fade bs-example-modal-sm fn-win-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Congratulations! You've won.</h4>
+        </div>
+        <div class="modal-body">
+          <span class="glyphicon glyphicon-thumbs-up thumbs-up"></span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary fn-play-again-btn" data-dismiss="modal">Play Again?</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="jumbotron">
     <div class="container">
@@ -27,21 +43,21 @@
     </div>
 
     <div class="row">
-      <div class="col-sm-10 col-sm-offset-1">
+      <div class="col-sm-10 col-sm-offset-1 fn-guess-alerts">
         <!-- TO-DO: one of these alerts will be displayed depending on input -->
-        <div class="alert alert-success" role="alert">You got it!</div>
-        <div class="alert alert-info" role="alert">You're getting colder.. <br>trying going higher <span class="glyphicon glyphicon-arrow-up"></span></div>
-        <div class="alert alert-danger" role="alert">You're getting warmer.. <br>try going lower <span class="glyphicon glyphicon-arrow-down"></span></div>
+        <div class="alert alert-success fn-win-alert" role="alert">You got it!</div>
+        <div class="alert alert-info fn-cold-alert" role="alert">You're getting colder.. <br>trying going higher <span class="glyphicon glyphicon-arrow-up"></span></div>
+        <div class="alert alert-danger fn-hot-alert" role="alert">You're getting warmer.. <br>try going lower <span class="glyphicon glyphicon-arrow-down"></span></div>
       </div>
     </div> <!-- /row -->
 
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1">
         <div class="input-group input-group-lg">
-          <input type="text" class="form-control" placeholder="Pick a number between 1-100">
+          <input type="text" class="form-control fn-guess-input" placeholder="Pick a number between 1-100" data-toggle="popover" title="Invalid Guess" data-content="Please enter a number from 1 - 100." data-placement="bottom">
           <span class="input-group-btn">
             <!-- update fn-num-guesses badge with num of remaining guesses (start at 7) -->
-            <button class="btn btn-primary" type="button">Guess! <span class="badge fn-num-guesses">4 left</span></button>
+            <button class="btn btn-primary fn-guess-btn" type="button">Guess! <span class="badge fn-num-guesses">7 left</span></button>
           </span>
         </div><!-- /input-group -->
       </div>
@@ -49,22 +65,25 @@
 
     <!-- TO-DO: hide this section until first guess is made -->
     <br>
-    <div class="row">
+    <div class="row fn-sink">
       <div class="col-sm-10 col-sm-offset-1">
         <!-- TO-DO: store previous guesses in an array and output to fn-num-guesses well -->
-        <div class="well well-sm text-muted" role="alert">Previous guesses: <span id="fn-num-guesses">55 <span class="glyphicon glyphicon-arrow-up"></span>, 90 <span class="glyphicon glyphicon-arrow-down"></span>, 70 <span class="glyphicon glyphicon-arrow-up"></span></span></div>
+        <div id="fn-num-guesses" class="well well-sm text-muted" role="alert"></div>
         </div>
-        <button type="button" class="btn btn-primary btn-sm">I need a hint!</button>
-        <button type="button" class="btn btn-primary btn-sm">Play Again?</button>
+        <button type="button" class="btn btn-primary btn-sm fn-hint-btn" data-toggle="popover" title="And the answer is.." data-placement="bottom">I need a hint!</button>
+        <button type="button" class="btn btn-primary btn-sm fn-play-again-btn">Play Again?</button>
       </div>
+    </div>
+    <div class="row fn-answer">
+      <p></p>
     </div>
 
     <!-- IDEA: fun winning animation with sunglasses and thumbs up sliding to the appropriate place on the circle
     circle will transform scale to fill most/entire screen
     sunglasses will fly down a la meme
-    thumbs up will come in from the right
+    thumbs up will come in from the right -->
 
-    <div id="fn-circle">
+    <!-- <div id="fn-circle">
       <span class="glyphicon glyphicon-sunglasses sunglasses"></span>
       <span class="glyphicon glyphicon-thumbs-up thumbs-up"></span>
     </div> -->
@@ -73,4 +92,5 @@
 </body>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/game.js"></script>
 </html>
