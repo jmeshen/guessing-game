@@ -17,7 +17,7 @@ var options = {
 $(document).ready(function(){
   newGameState();
 
-  // $('.fn-guess-input').keyup(checkInput);
+  //$('.fn-guess-input').keyup(checkInput);
 });
 
 
@@ -27,26 +27,45 @@ function generateNumber() {
 }
 
 // function checkInput() {
+//   console.log($guessVal);
 //   if ($guessVal === '' || $guessVal > 100 || $guessVal < 1) {
+//     console.log("hello, i am in checkinput");
 //     $('.fn-guess-input').popover({
+//       container: 'body',
 //       trigger: 'manual',
 //       title: 'Guess invalid!',
 //       content: "Please enter a number from 1 - 100.",
 //       placement: 'top'
 //     });
+//     $('.fn-guess-input').popover('show');
+
 //     //alert("Please enter a number between 1 and 100.");
 //   }
 // }
 
+var $guessVal = $('.fn-guess-input').val();
 function guess() {
-  var $guessVal = $('.fn-guess-input').val();
+  $guessVal = $('.fn-guess-input').val();
+  var regNum = new RegExp('^\\d+$');
 
+  if ($guessVal === '' || $guessVal > 100 || $guessVal < 1 || !regNum.test($guessVal)) {
+    console.log($guessVal + ' is not valid');
 
+    console.log(regNum.test($guessVal));
+    $('.fn-guess-input').popover({
+      container: 'body',
+      trigger: 'manual',
+      title: 'Try again',
+      content: "Please enter a number from 1 - 100."
+      // placement: 'bottom'
+    });
 
-  if ($guessVal === '' || $guessVal > 100 || $guessVal < 1) {
-    alert("Please enter a number between 1 and 100.");
+    $('.fn-guess-input').popover('show');
+    //alert("Please enter a number between 1 and 100.");
   }
   else if (numGuesses > 0) {
+  $('.fn-guess-input').popover('hide');
+
     revealSink();
     $('.fn-print-guess').text($guessVal);
 
@@ -58,21 +77,29 @@ function guess() {
       updateNumGuesses();
 
       displayPrevGuesses(prevGuesses);
-      temp($guessVal);
+      temperature($guessVal);
       highOrLow($guessVal);
 
     } else {
-      alert("You've already tried: " + $guessVal);
+      $('.fn-warn-alert').html("You've already tried: " + $guessVal + "<br>Please try again.").slideDown('slow').siblings().slideUp('slow');
+    //   $('.fn-guess-input').popover({
+    //   container: 'body',
+    //   trigger: 'manual',
+    //   title: 'Try again',
+    //   content: "You've already tried: " + $guessVal
+    // });
+    // $('.fn-guess-input').popover('show');
+      // alert("You've already tried: " + $guessVal);
     }
 
   }
   // else if (numGuesses === 0) {
   //   $(this).attr('disabled', 'disabled');
   // }
-  $('.fn-guess-input').focus();
+  $('.fn-guess-input').focus().val('');
 }
 
-function temp($guessVal) {
+function temperature($guessVal) {
   var guessDiff = Math.abs(theNumber - $guessVal);
 
   if (guessDiff === 0) {
@@ -131,6 +158,7 @@ function updateNumGuesses() {
   $('.fn-num-guesses').text(numGuesses + ' left');
   if (numGuesses === 0) {
     $('.fn-guess-btn').attr('disabled', 'disabled');
+    $('.fn-lose-modal').modal('show');
   }
 }
 
@@ -160,7 +188,7 @@ function playAgain() {
   numGuesses = 7;
   updateNumGuesses();
   $('.fn-guess-input').val('');
-  $('#fn-num-guesses').text('Your game has been restarted. Submit a new guess!');
+  $('#fn-num-guesses').html('Your game has been restarted. <br>Submit a new guess!');
   $('.fn-print-guess').text('?');
   $('.fn-guess-btn').removeAttr('disabled');
 }

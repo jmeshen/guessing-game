@@ -1,5 +1,12 @@
 body {
   text-align: center;
+  background: rgb(30, 41, 54);
+}
+#wrapper {
+  background: rgb(251, 216, 151);
+  max-width: 721px;
+  margin: 5% auto;
+  border-radius: 10px;
 }
 #fn-circle {
   margin: 0 auto;
@@ -29,14 +36,20 @@ body {
 .thumbs-up {
   font-size: 8em;
 }
+.hand-right {
+  font-size: 8em;
+  -ms-transform: rotate(50deg); /* IE 9 */
+  -webkit-transform: rotate(50deg); /* Chrome, Safari, Opera */
+  transform: rotate(50deg);
+}
 .fn-guess-alerts div {
   display: none;
 }
 .fn-sink {
   display: none;
 }
-.fn-win-modal {
-  margin-top: 15%;
+.fn-win-modal, .fn-lose-modal {
+  margin-top: 13%;
 }
 #game-area {
   background-color: #188DBE;
@@ -49,6 +62,13 @@ body {
   border: 1px solid rgb(185, 185, 185);
 }
 .jumbotron {
-  background-color: #fff;
+  background-color: rgb(251, 216, 151);
   margin-bottom: 0;
+  border-radius: 10px;
+}
+.jumbotron h1 {
+  color: rgb(34, 65, 101)
+}
+.jumbotron h2 {
+  color: #403F3B;
 }
