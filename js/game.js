@@ -121,11 +121,12 @@ function updateNumGuesses() {
   }
 }
 
-function displayPrevGuesses(prevGuesses) {
-  var guessUp = '<span>' + prevGuesses[prevGuesses.length - 1] + '<span class="glyphicon glyphicon-arrow-up"></span></span>';
-  var guessDown = '<span>' + prevGuesses[prevGuesses.length - 1] + '<span class="glyphicon glyphicon-arrow-down"></span></span>';
+function displayPrevGuesses() {
+  var prevGuess = prevGuesses[prevGuesses.length - 1];
+  var guessUp = '<span>' + prevGuess + '<span class="glyphicon glyphicon-arrow-up"></span></span>';
+  var guessDown = '<span>' + prevGuess + '<span class="glyphicon glyphicon-arrow-down"></span></span>';
 
-  if (prevGuesses[prevGuesses.length - 1] < theNumber) {
+  if (prevGuess < theNumber) {
     if (prevGuesses.length == 1) {
       $('#fn-num-guesses').empty();
       $('#fn-num-guesses').append('Previous Guesses: ' + guessUp);
@@ -133,7 +134,7 @@ function displayPrevGuesses(prevGuesses) {
       $('#fn-num-guesses').append(', ' + guessUp);
     }
   }
-  else if (prevGuesses[prevGuesses.length - 1] > theNumber) {
+  else if (prevGuess > theNumber) {
     if (prevGuesses.length == 1) {
       $('#fn-num-guesses').empty();
       $('#fn-num-guesses').append('Previous Guesses: ' + guessDown);
@@ -141,12 +142,12 @@ function displayPrevGuesses(prevGuesses) {
       $('#fn-num-guesses').append(', ' + guessDown);
     }
   }
-  else if (prevGuesses[prevGuesses.length - 1] == theNumber) {
+  else if (prevGuess == theNumber) {
     if (prevGuesses.length == 1) {
      $('#fn-num-guesses').empty();
      $('#fn-num-guesses').append('Wow, first try! ' + 'You won with: <span>' + theNumber + '</span>');
     } else {
-      $('#fn-num-guesses').append(', ' + '<span>' + prevGuesses[prevGuesses.length - 1] + '</span>');
+      $('#fn-num-guesses').append(', ' + '<span>' + prevGuess + '</span>');
       }
   }
   // the appending and emptying of the guesses div could maybe be abstracted
