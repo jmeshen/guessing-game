@@ -1,3 +1,4 @@
+/*Layout*/
 body {
   text-align: center;
   background: rgb(30, 41, 54);
@@ -7,59 +8,7 @@ body {
   max-width: 721px;
   margin: 5% auto;
   border-radius: 10px;
-}
-#fn-circle {
-  margin: 0 auto;
-  width: 200px;
-  height: 200px;
-  background-color: cornsilk;
-  border-radius: 50%;
-  line-height: 200px;
-/*  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 2s ease-in-out;
-  -ms-transition: all 2s ease-in-out;
-  transition: all 2s ease-in-out;*/
-}
-/*#fn-circle:hover {
-  transform: scale(2);
-}*/
-.fn-print-grow {
-  margin-bottom: 5%;
-}
-.fn-print-guess {
-  font-size: 6em;
-}
-.sunglasses {
-  font-size: 11em;
-}
-.thumbs-up {
-  font-size: 8em;
-}
-.hand-right {
-  font-size: 8em;
-  -ms-transform: rotate(50deg); /* IE 9 */
-  -webkit-transform: rotate(50deg); /* Chrome, Safari, Opera */
-  transform: rotate(50deg);
-}
-.fn-guess-alerts div {
-  display: none;
-}
-.fn-sink {
-  display: none;
-}
-.fn-win-modal, .fn-lose-modal {
-  margin-top: 13%;
-}
-#game-area {
-  background-color: #188DBE;
-  padding: 3%;
-  border-radius: 10px;
-  max-width: 700px;
-}
-.btn-guess {
-  background: cornsilk;
-  border: 1px solid rgb(185, 185, 185);
+  padding-bottom: 10px;
 }
 .jumbotron {
   background-color: rgb(251, 216, 151);
@@ -71,4 +20,119 @@ body {
 }
 .jumbotron h2 {
   color: #403F3B;
+}
+
+/*Game Area*/
+#game-area {
+  background-color: #188DBE;
+  padding: 3%;
+  border-radius: 10px;
+  max-width: 700px;
+}
+#fn-circle {
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  background-color: rgb(255, 248, 219);
+  border-radius: 50%;
+  line-height: 200px;
+}
+#fn-num-guesses > span {
+  font-weight: bold;
+}
+.fn-print-grow {
+  margin-bottom: 5%;
+}
+.fn-print-guess {
+  font-size: 6em;
+}
+.fn-guess-alerts div {
+  display: none;
+}
+.fn-sink {
+  display: none;
+}
+
+/*Modals + Glyphicons*/
+.fn-win-modal, .fn-lose-modal {
+  margin-top: 13%;
+}
+.thumbs-up {
+  font-size: 8em;
+}
+.hand-right {
+  font-size: 8em;
+  -ms-transform: rotate(50deg); /* IE 9 */
+  -webkit-transform: rotate(50deg); /* Chrome, Safari, Opera */
+  transform: rotate(50deg);
+}
+
+/*Colors*/
+.win {
+  color: #12a280;
+}
+.hottest {
+  color: #d51003;
+}
+.hot {
+  color: #aa0c02;
+}
+.warm {
+  color: #7f0901;
+}
+.cool {
+  color: #0099ff;
+}
+.cold {
+  color: #007acc;
+}
+.coldest {
+  color: #005b99;
+}
+
+/*Buttons*/
+.btn {
+    padding: 7px 21px;
+    border: 0 none;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+.btn-primary {
+    background: #0E4A74;
+    color: #ffffff;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #385581;
+}
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}
+.btn-lg.round {
+    border-radius: 24px;
+}
+.btn-primary.raised:active, .btn-primary.raised.active {
+    background: #33a6cc;
+    box-shadow: none;
+    margin-bottom: -3px;
+    margin-top: 3px;
+}
+.btn-sm {
+  margin: 5px;
+  background: rgb(56, 71, 90);
+}
+.btn-default {
+  border: 1px solid #C4C4C4;
+  color: #737373;
+  padding: 6px 21px;
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+  background: #FFFFFF;
+  border-color: #949494;
+  color: #737373;
+}
+.btn-default:active, .btn-default.active {
+  border-color: #737373;
+  box-shadow: none;
 }

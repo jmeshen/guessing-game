@@ -9,10 +9,12 @@
   <link rel="stylesheet" href="css/game.css">
 </head>
 <body>
+  <!-- modals -->
   <div class="modal fade bs-example-modal-sm fn-win-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">Congratulations! You've won.</h4>
         </div>
         <div class="modal-body">
@@ -25,11 +27,11 @@
       </div>
     </div>
   </div>
-
   <div class="modal fade bs-example-modal-sm fn-lose-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">Aw.. You didn't win this time.</h4>
         </div>
         <div class="modal-body">
@@ -42,6 +44,8 @@
       </div>
     </div>
   </div>
+  <!-- /modals -->
+
   <div id='wrapper'>
     <div class="jumbotron">
       <div class="container">
@@ -53,21 +57,19 @@
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3 fn-print-grow">
           <div id="fn-circle">
-            <!-- TO-DO: replace '?' with previous guess -->
             <span class="fn-print-guess">?</span>
           </div>
         </div>
-      </div>
+      </div> <!-- /row | prev guess in circle -->
 
       <div class="row">
         <div class="col-sm-10 col-sm-offset-1 fn-guess-alerts">
-          <!-- TO-DO: one of these alerts will be displayed depending on input -->
           <div class="alert alert-success fn-win-alert" role="alert"></div>
           <div class="alert alert-info fn-cold-alert" role="alert"></div>
           <div class="alert alert-danger fn-hot-alert" role="alert"></div>
           <div class="alert alert-warning fn-warn-alert" role="alert"></div>
         </div>
-      </div> <!-- /row -->
+      </div> <!-- /row | alerts -->
 
       <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
@@ -79,33 +81,18 @@
             </span>
           </div><!-- /input-group -->
         </div>
-      </div><!-- /row -->
+      </div><!-- /row | input area -->
 
-      <!-- TO-DO: hide this section until first guess is made -->
       <br>
       <div class="row fn-sink">
         <div class="col-sm-10 col-sm-offset-1">
-          <!-- TO-DO: store previous guesses in an array and output to fn-num-guesses well -->
           <div id="fn-num-guesses" class="well well-sm text-muted" role="alert"></div>
-          </div>
-          <button type="button" class="btn btn-primary btn-sm fn-hint-btn" data-toggle="popover" title="And the answer is.." data-placement="bottom">I need a hint!</button>
-          <button type="button" class="btn btn-primary btn-sm fn-play-again-btn">Play Again?</button>
         </div>
+          <button type="button" class="btn btn-primary btn-sm raised fn-hint-btn" data-toggle="popover" title="And the answer is.." data-placement="bottom">I need a hint!</button>
+          <button type="button" class="btn btn-primary btn-sm fn-play-again-btn">Play Again?</button>
       </div>
-      <div class="row fn-answer">
-        <p></p>
-      </div>
 
-      <!-- IDEA: fun winning animation with sunglasses and thumbs up sliding to the appropriate place on the circle
-      circle will transform scale to fill most/entire screen
-      sunglasses will fly down a la meme
-      thumbs up will come in from the right -->
-
-      <!-- <div id="fn-circle">
-        <span class="glyphicon glyphicon-sunglasses sunglasses"></span>
-        <span class="glyphicon glyphicon-thumbs-up thumbs-up"></span>
-      </div> -->
-
+    </div> <!-- /container | game area -->
   </div> <!-- /wrapper -->
 </body>
 <script src="js/jquery.min.js"></script>
